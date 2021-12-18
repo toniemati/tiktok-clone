@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import {getFirestore } from 'firebase/firestore';
+import {getFirestore, getDocs, collection } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkzA2h8_vORnGYt13jyR7I-VesU-1TIH8",
@@ -15,4 +15,9 @@ initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
-export default db;
+const getCollection = async (collectionName) => {
+  const ref = collection(db, collectionName);
+  return getDocs(ref);
+}
+
+export { getCollection };
