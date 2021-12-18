@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import VideoFooter from '../VideoFooter/VideoFooter';
+import VideoFooter from './VideoFooter/VideoFooter';
+import VideoSidebar from './VideoSidebar/VideoSidebar';
 import './Video.css';
 
-const Video = () => {
+const Video = ({ video }) => {
   const videoRef = useRef(null);
 
   const onVideoPress = () => {
@@ -23,7 +24,7 @@ const Video = () => {
       >
       </video>
       <VideoFooter channel="boxdil" description="zrob mi louda" song="masny ben - masno fest" />
-      {/* <VideoSideBar /> */}
+      <VideoSidebar likes={300} messages={200} shares={100} />
     </div>
   )
 }
